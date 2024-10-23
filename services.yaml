@@ -1,0 +1,17 @@
+# kubectl -n pnt apply -f service.yaml
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: sample-app-service
+  labels:
+    app: sample-app-service
+spec:
+  selector:
+    app: sample-app
+  type: NodePort # default, can be NodePort, LoadBalancer, ExternalName
+  ports:
+    - protocol: TCP
+      port: 8090 # port of service
+      targetPort: 8090 # port of application/pod
+      nodePort: 30000  # NodePort you want to expose
