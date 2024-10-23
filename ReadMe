@@ -1,1 +1,11 @@
 Simple Endpoint With GO
+
+RUN WITH DOCKER
+docker run -p 8090:8090 [ImageID]
+
+RUN WITH MINIKUBE
+minikube start
+kubectl create namespace pnt
+kubectl -n pnt apply -f deployment.yaml
+kubectl -n pnt apply -f service.yaml
+minikube -n pnt service sample-app-service 
